@@ -78,14 +78,14 @@ func main() {
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error on parsing %v \n", err)
 		}
-		fmt.Printf(`Resultado obtido primeiro pela API "https://cdn.apicep.com/file/apicep/" + cep + ".json": %v`, cep)
+		fmt.Printf(`Resultado obtido primeiro pela API "https://cdn.apicep.com/file/apicep/09130-110.json": %v`, cep)
 	case resp := <-c2:
 		var cep ViaCEP
 		err := json.Unmarshal(resp, &cep)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error on parsing %v \n", err)
 		}
-		fmt.Printf(`Resultado obtido primeiro pela API "http://viacep.com.br/ws/" + cep + "/json/": %v`, cep)
+		fmt.Printf(`Resultado obtido primeiro pela API "http://viacep.com.br/ws/09130110/json/": %v`, cep)
 	case <-time.After(time.Second * 1):
 		println("timeout")
 	}
