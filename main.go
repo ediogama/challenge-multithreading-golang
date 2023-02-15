@@ -43,7 +43,7 @@ func main() {
 	c2 := make(chan []byte)
 
 	go func() {
-		cep := "09130-110"
+		cep := "09130-100"
 		req, err := http.Get("https://cdn.apicep.com/file/apicep/" + cep + ".json")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "There was an error on %v \n", err)
@@ -58,7 +58,7 @@ func main() {
 	}()
 
 	go func() {
-		cep := "09130110"
+		cep := "09130100"
 		req, err := http.Get("http://viacep.com.br/ws/" + cep + "/json/")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "There was an error on %v \n", err)
